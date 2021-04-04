@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import AddProduct from './components/AddProduct/AddProduct';
 import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import Checkout from './components/Checkout/Checkout';
 
 
 function App() {
@@ -22,7 +24,10 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/order">Order</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
             </li>
             <li>
               <Link to="/addProduct">Admin</Link>
@@ -33,12 +38,20 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
+          <Route path="/order">
 
           </Route>
 
           <Route path="/addProduct">
             <AddProduct />
+          </Route>
+
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+
+          <Route path="/checkout/:_id">
+            <Checkout/>
           </Route>
 
           <Route path="/">

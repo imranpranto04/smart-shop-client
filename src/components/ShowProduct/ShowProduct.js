@@ -1,8 +1,10 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 const ShowProduct = ({ product }) => {
+    const {name, price, imageURL, _id} = product;
     return (
         <div className="col-md-4 mt-5">
 
@@ -19,7 +21,7 @@ const ShowProduct = ({ product }) => {
                 <Card.Body>
                     <Card.Link href="#">${product.price}</Card.Link>
                     {/* <Card.Link href="#">Another Link</Card.Link> */}
-                    <Button className="ml-5">Buy now</Button>
+                    <Link to={`/checkout/${_id}`}> <Button className="ml-5">Buy now</Button> </Link>
                 </Card.Body>
             </Card>
 
