@@ -1,18 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Button } from 'react-bootstrap';
+import { UserContext } from '../../App';
 
 
 const Checkout = () => {
 
     const { _id } = useParams();
     const [showProduct, setShowProduct] = useState([]);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/products${_id}`)
             .then(res => res.json())
             .then(data => setShowProduct(data));
     }, [])
+
+    const orderClick = () =>{
+        const orderInfo = { ...loggedInUser, ...showProduct, time: new Date()}
+        console.log(orderInfo);
+        fetch(`http://localhost:5000/addOrder`,{
+            method: 'POST',
+            headers: {
+                'Content-type' : 'application/json'
+            },
+            body: JSON.stringify(orderInfo)
+    
+        })
+        .then(res=> res.json())
+        .then(data=> console.log(data));
+    };
 
     return (
         <div className="container">
@@ -23,8 +41,8 @@ const Checkout = () => {
             <h4>Price: ${showProduct.price}</h4>
             <h4>Quantity: 1</h4> */}
 
-            <table class="table">
-                <thead class="thead-light">
+            <table className="table">
+                <thead className="thead-light">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Description</th>
@@ -49,7 +67,7 @@ const Checkout = () => {
                 </tbody>
             </table>
             <div className="d-flex justify-content-end">
-            <Button variant="danger">Order</Button>
+            <Button onClick={orderClick} variant="danger">Order</Button>
             </div>
         </div>
     );
