@@ -40,9 +40,12 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <h4>Please, you need to login.</h4>
-            <Button onClick={handleSignIn}>Sign In</Button>
+        <div className="container mt-3">
+            <h2 className="mt-4 text-center text-danger">Please, you need to login.</h2>
+
+            <div className="mt-5 d-flex justify-content-center">
+            <Button  variant="info" onClick={handleSignIn}>Sign In With Google</Button>
+            </div>
         </div>
     );
 };

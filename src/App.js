@@ -75,6 +75,10 @@ function App() {
           <Route exact path="/">
             <Home></Home>
           </Route>
+
+          <Route  path="*">
+            <h2 className="text-center text-danger">404 Not Found!</h2>
+          </Route>
           
         </Switch>
       </div>

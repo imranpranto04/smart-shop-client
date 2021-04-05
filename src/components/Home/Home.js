@@ -15,7 +15,7 @@ const Home = () => {
 
     return (
         <div className="container">
-            <h1>This is Home.</h1>
+            <h1 className="text-success">This is Home.</h1>
             {
                 products.length === 0 && <CircularProgress />
             }
