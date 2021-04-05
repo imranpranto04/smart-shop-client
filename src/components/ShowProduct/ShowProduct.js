@@ -20,7 +20,7 @@ const ShowProduct = ({ product }) => {
                 
                 <Card.Body>
                     <Card.Link href="#">${product.price}</Card.Link>
-                    {/* <Card.Link href="#">Another Link</Card.Link> */}
+                    
                     <Link to={`/checkout/${_id}`}> <Button className="ml-5">Buy now</Button> </Link>
                 </Card.Body>
             </Card>

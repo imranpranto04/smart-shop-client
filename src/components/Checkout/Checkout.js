@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Button } from 'react-bootstrap';
 import { UserContext } from '../../App';
+import { Link } from 'react-router-dom';
 
 
 const Checkout = () => {
@@ -35,11 +36,6 @@ const Checkout = () => {
     return (
         <div className="container">
             <h2>Checkout</h2>
-            
-            {/* <h1>{_id}</h1>
-            <h4>Product Name: {showProduct.name}</h4>
-            <h4>Price: ${showProduct.price}</h4>
-            <h4>Quantity: 1</h4> */}
 
             <table className="table">
                 <thead className="thead-light">
@@ -67,7 +63,8 @@ const Checkout = () => {
                 </tbody>
             </table>
             <div className="d-flex justify-content-end">
-            <Button onClick={orderClick} variant="danger">Order</Button>
+            <Button onClick={orderClick} variant="danger"><Link className="text-white" link to="/order">Order</Link></Button>
+            
             </div>
         </div>
     );
