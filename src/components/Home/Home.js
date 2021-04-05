@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ShowProduct from '../ShowProduct/ShowProduct';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 const Home = () => {
 
@@ -14,6 +16,9 @@ const Home = () => {
     return (
         <div className="container">
             <h1>This is Home.</h1>
+            {
+                products.length === 0 && <CircularProgress />
+            }
             <div className="row">
                 {
                     products.map(product => <ShowProduct product={product}></ShowProduct>)

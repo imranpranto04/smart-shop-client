@@ -12,13 +12,24 @@ import AddProduct from './components/AddProduct/AddProduct';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Checkout from './components/Checkout/Checkout';
+import Header from './components/Header/Header';
+import { createContext, useState } from 'react';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Order from './components/Order/Order';
 
+export const UserContext = createContext();
 
 function App() {
+
+  const [loggedInUser, setLoggedInUser] = useState({});
+
   return (
+
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+
     <Router>
       <div>
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -33,34 +44,43 @@ function App() {
               <Link to="/addProduct">Admin</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
+          <Header></Header>
+          <h4 className="text-center">User: {loggedInUser.name}</h4>
         <Switch>
-          <Route path="/order">
 
+        <Route path="/home">
+            <Home></Home>
           </Route>
 
-          <Route path="/addProduct">
+          <PrivateRoute path="/order">
+            <Order></Order>
+          </PrivateRoute>
+
+          <PrivateRoute path="/addProduct">
             <AddProduct />
-          </Route>
+          </PrivateRoute>
 
           <Route path="/login">
             <Login></Login>
           </Route>
 
-          <Route path="/checkout/:_id">
+          <PrivateRoute path="/checkout/:_id">
             <Checkout/>
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/">
+          <Route exact path="/">
             <Home></Home>
           </Route>
           
         </Switch>
       </div>
     </Router>
+
+    </UserContext.Provider>
   );
 }
 

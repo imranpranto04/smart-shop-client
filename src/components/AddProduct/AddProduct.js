@@ -44,14 +44,16 @@ const AddProduct = () => {
     }
 
     return (
-        <div>
-            <h1>Product added.</h1>
+        <div className="container">
+            <h2>Admin</h2>
+            <h4>Create Product</h4>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-
+            <form className="mt-3" onSubmit={handleSubmit(onSubmit)}>
+                <label>input product name</label>
                 <input name="name" defaultValue="New Product" {...register("example")}/>
                 <br/>
-
+                
+                <label>input product price </label>
                 <input type="number" defaultValue="price" {...register("number")}/>
                 <br/>
 
