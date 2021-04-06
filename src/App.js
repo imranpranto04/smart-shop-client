@@ -16,6 +16,7 @@ import Header from './components/Header/Header';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Order from './components/Order/Order';
+import Delete from './components/Delete/Delete';
 
 export const UserContext = createContext();
 
@@ -70,6 +71,10 @@ function App() {
 
           <PrivateRoute path="/checkout/:_id">
             <Checkout/>
+          </PrivateRoute>       
+
+          <PrivateRoute path="/delete">
+            <Delete></Delete>
           </PrivateRoute>
 
           <Route exact path="/">

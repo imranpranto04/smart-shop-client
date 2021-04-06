@@ -7,7 +7,7 @@ const OrderDetails = ({ order }) => {
     
     return (
 
-        <div className="col-md-4">
+        <div className="col-md-4 mt-5">
 
             <Card className='h-100 mt-5' >
                 <Card.Img className='h-50' variant="top" src={imageURL} />
@@ -17,6 +17,7 @@ const OrderDetails = ({ order }) => {
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                     <ListGroupItem>Price: <b>${price}</b></ListGroupItem>
+                    <ListGroupItem>Quantity: <b>1</b></ListGroupItem>
                     <ListGroupItem>Email: <b>{email}</b></ListGroupItem>
                     <ListGroupItem>Order Time: {time}</ListGroupItem>
                 </ListGroup>

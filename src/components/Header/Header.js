@@ -14,7 +14,7 @@ const Header = () => {
                     <Nav className="ml-auto">
                         <li><Link Link to="/home">Home</Link></li>
                         <li><Link link to="/order">Order</Link></li>
-                        {/* <li><Link Link to="/login">Login</Link></li> */}
+                        <li><Link Link to="/delete">Delete Item</Link></li>
                         <li><Link Link to="/addProduct">Admin</Link></li>
                         <li>
 
